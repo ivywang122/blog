@@ -6,19 +6,10 @@
     <description>Recent content in Tags on BoBo Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Mar 2018 21:54:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 21 Mar 2018 10:56:38 +0800</lastBuildDate>
     
 	<atom:link href="https://ivywang122.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Blogging</title>
-      <link>https://ivywang122.github.io/blog/tags/blogging/</link>
-      <pubDate>Mon, 19 Mar 2018 21:54:40 +0800</pubDate>
-      
-      <guid>https://ivywang122.github.io/blog/tags/blogging/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Hugo</title>
@@ -39,11 +30,11 @@
     </item>
     
     <item>
-      <title>Web Development</title>
-      <link>https://ivywang122.github.io/blog/tags/web-development/</link>
+      <title>Test</title>
+      <link>https://ivywang122.github.io/blog/tags/test/</link>
       <pubDate>Mon, 19 Mar 2018 21:54:40 +0800</pubDate>
       
-      <guid>https://ivywang122.github.io/blog/tags/web-development/</guid>
+      <guid>https://ivywang122.github.io/blog/tags/test/</guid>
       <description></description>
     </item>
     

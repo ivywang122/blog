@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on BoBo Dev Notes</title>
+    <link>https://ivywang122.github.io/blog/tags/test/</link>
+    <description>Recent content in Test on BoBo Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Mar 2018 21:54:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://ivywang122.github.io/blog/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Post</title>
+      <link>https://ivywang122.github.io/blog/blog/2018/03/first-post/</link>
+      <pubDate>Mon, 19 Mar 2018 21:54:40 +0800</pubDate>
+      
+      <guid>https://ivywang122.github.io/blog/blog/2018/03/first-post/</guid>
+      <description>First Post 測試</description>
+    </item>
+    
+  </channel>
+</rss>
