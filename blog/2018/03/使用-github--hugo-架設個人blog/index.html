@@ -94,7 +94,7 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 
 <meta itemprop="datePublished" content="2018-03-21T10:56:38&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-21T10:56:38&#43;08:00" />
-<meta itemprop="wordCount" content="241">
+<meta itemprop="wordCount" content="426">
 
 
 
@@ -208,21 +208,23 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 <li><a href="#將-hugo-添加到的-windows-環境變數設置中">將 Hugo 添加到的 Windows 環境變數設置中</a></li>
 </ul></li>
 <li><a href="#mac-安裝">Mac 安裝</a></li>
-<li><a href="#確認安裝">確認安裝</a></li>
+<li><a href="#確認安裝">確認安裝</a>
+<ul>
+<li><a href="#基本指令">基本指令</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#開始建站">開始建站</a>
 <ul>
 <li><a href="#新增一個-site-project">新增一個 site project</a></li>
-<li><a href="#新增一篇文章">新增一篇文章</a>
-<ul>
-<li><a href="#md-結構預覽">.md 結構預覽</a></li>
+<li><a href="#新增一篇文章">新增一篇文章</a></li>
+<li><a href="#markdown-結構預覽">Markdown 結構預覽</a></li>
+<li><a href="#啟用-hugo-伺服器執行">啟用 hugo 伺服器執行</a></li>
 </ul></li>
 <li><a href="#添加主題模板">添加主題模板</a>
 <ul>
 <li><a href="#主題下載">主題下載</a></li>
 <li><a href="#主題預覽">主題預覽</a></li>
-<li><a href="#主題設定">主題設定</a></li>
-</ul></li>
+<li><a href="#設定-config-toml">設定 config.toml</a></li>
 </ul></li>
 <li><a href="#發布">發布</a>
 <ul>
@@ -352,9 +354,16 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 
 <p>Hugo 安裝完成後，可以執行 <code>$ hugo version</code> 來確認是否安裝成功。</p>
 
-<pre><code>$ hugo version  # 查看當前版本
-$ hugo help     # hugo 指令目錄查看
+<h3 id="基本指令">基本指令</h3>
+
+<pre><code>$ hugo version               # 查看當前版本
+$ hugo help                  # hugo 指令目錄查看
+$ hugo new site yourSite     # 新增一個網站 project
+$ hugo new post/your-post.md # 新增一篇文章
+$ hugo server                # 啟用 localhost:1313
 </code></pre>
+
+<p>詳細指令可參考官方文件：<a href="https://gohugo.io/getting-started/usage/">Basic Usage｜Hugo</a></p>
 
 <hr />
 
@@ -390,7 +399,22 @@ $ hugo new post/first-post.md
 <li><a href="https://pandao.github.io/editor.md/index.html">Editor.md</a> : 中文化介面</li>
 </ul>
 
-<h3 id="md-結構預覽">.md 結構預覽</h3>
+<h2 id="markdown-結構預覽">Markdown 結構預覽</h2>
+
+<p>試著打開<code>/content/about.md</code>中查看檔案，會發現指令自動建立的內容中包含了文章基本資訊，如：生成日期、標題、是否為草稿等，內文可以從 &mdash; 分隔線以下開始撰寫。</p>
+
+<p>
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0413-2.png" />
+    
+    
+    <figcaption>
+        <h4>about.md 結構-1</h4>
+        
+    </figcaption>
+    
+</figure>
 
 
 <figure>
@@ -399,14 +423,58 @@ $ hugo new post/first-post.md
     
     
     <figcaption>
-        <h4>about.md 結構</h4>
+        <h4>about.md 結構-2</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>如果習慣用 VS code 編輯文章，則可以使用 <strong>預覽功能</strong> 查看完成的視圖。
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0413-3.png" />
+    
+    
+    <figcaption>
+        <h4>從 VS Code 預覽.md-1</h4>
         
     </figcaption>
     
 </figure>
 
 
-<h2 id="添加主題模板">添加主題模板</h2>
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0413-4.png" />
+    
+    
+    <figcaption>
+        <h4>從 VS Code 預覽.md-2</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<h2 id="啟用-hugo-伺服器執行">啟用 hugo 伺服器執行</h2>
+
+<p>文章新增完成要在 local 端預覽，執行：</p>
+
+<pre><code>$ hugo server -D
+</code></pre>
+
+<p>hugo server 會預留 <code>1313</code>作連接埠，可於瀏覽器查看 <a href="http://localhost:1313">http://localhost:1313</a></p>
+
+<p><p>然後發現&hellip;<strong style="font-size: 20px;">一片空白，什麼都沒有！！</strong></p>
+這很正常，因為網站還沒有添加主題模板，所以內容當然是空無一物。接著會繼續操作為網站添加主題。</p>
+
+<p><em><p class="ps-text">ps. hugo server -D 指令中的 <code>-D</code> 為 <code>--buildDrafts</code> 參數簡寫，可在 localhost 端中預覽文章 <code>draft: true</code> 的內容</p></em></p>
+
+<hr />
+
+<h1 id="添加主題模板">添加主題模板</h1>
 
 <blockquote>
 <p>預設生成的網站是沒有任何主題模板的</p>
@@ -419,7 +487,7 @@ $ hugo new post/first-post.md
 <p>如果想要理解 Hugo 本身的 Layout 運作則可參考此篇：
 <a href="http://cjting.me/golang/migrate-to-hugo-from-jekyll/">從Jekyll遷移到Hugo，Hugo不完全指南</a></p>
 
-<h3 id="主題下載">主題下載</h3>
+<h2 id="主題下載">主題下載</h2>
 
 <p>首先挑一個喜歡的主題模板放到專案<code>/themes</code>目錄，這邊使用了<code>ananke</code>這個主題。</p>
 
@@ -429,13 +497,85 @@ $ git clone https://github.com/budparr/gohugo-theme-ananke.git
 
 <p>如果沒有使用 git 可以到主題 <a href="https://github.com/budparr/gohugo-theme-ananke">gitHub站</a> 上直接下載 zip 解壓縮到 <code>/theme</code> 即可。</p>
 
-<h3 id="主題預覽">主題預覽</h3>
+<h2 id="主題預覽">主題預覽</h2>
 
-<h3 id="主題設定">主題設定</h3>
+<pre><code>$ hugo server --theme=ananke
+</code></pre>
+
+<p>此時輸入 hugo server 帶入 theme 指令，可以在 localhost 上看到剛剛建立的文章預覽了！當然也可以下載更多的主題來預覽，只要在<code>--theme=your-theme-name</code>改成欲套用的主題名稱即可。</p>
+
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0413-5.png" />
+    
+    
+    <figcaption>
+        <h4>主題預覽</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<h2 id="設定-config-toml">設定 config.toml</h2>
+
+<p>一開始由 hugo 生成的 <code>config.toml</code> 文件設定上較精簡，可以將下載下來的<code>anake/exampleSite/config.toml</code>複製覆蓋到專案目錄中，再進行更細部的設定。</p>
+
+<p>以下僅做常用的設定介紹，更詳盡的設定參數請參考官方文件：<a href="https://gohugo.io/getting-started/configuration/#toml-configuration">Configure Hugo｜Hugo</a></p>
+
+<pre><code class="language-toml"># 網頁的標題
+title = &quot;Your Site Title&quot;   
+    
+# 伺服器主機
+baseURL = &quot;https://example.com&quot; 
+
+# 語言編碼 (en, zh-tw... 台灣)
+languageCode = &quot;en-us&quot;     
+
+# 設定使用的主題 (default: ./theme/THEMENAME)
+theme = &quot;ananke&quot;                
+
+# 預設內容語言
+DefaultContentLanguage = &quot;en&quot;   
+
+# 分頁數
+paginate = 10 (default: 10)
+
+# 分頁路徑名稱
+paginatePath = &quot;page&quot; (default: &quot;page&quot;)
+
+# 定義文章訪問路径
+[permalinks]                    
+  post = &quot;/:year/:month/:title/&quot;
+
+# 定義導航路徑及名稱
+[[menu.main]]
+  name = &quot;About&quot;
+  identifier = &quot;about&quot;
+  url = &quot;/about/&quot;
+  weight = 10                 # 決定排序順位
+
+[[menu.main]]
+  name = &quot;Blog&quot;
+  identifier = &quot;blog&quot;
+  url = &quot;/blog/&quot;
+  weight = 20
+
+# 自定義參數
+[params]
+  version = &quot;3.0.x&quot;
+  userparams = &quot;bobo&quot;
+
+</code></pre>
+
+<hr />
 
 <h1 id="發布">發布</h1>
 
 <h2 id="部署-github-pages">部署 GitHub Pages</h2>
+
+<hr />
 
 <h1 id="結語">結語</h1>
     </div>
