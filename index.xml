@@ -37,14 +37,5 @@
       <description>這是一個about page</description>
     </item>
     
-    <item>
-      <title>First Post</title>
-      <link>https://ivywang122.github.io/blog/blog/2018/03/first-post/</link>
-      <pubDate>Mon, 19 Mar 2018 21:54:40 +0800</pubDate>
-      
-      <guid>https://ivywang122.github.io/blog/blog/2018/03/first-post/</guid>
-      <description>First Post 測試</description>
-    </item>
-    
   </channel>
 </rss>
