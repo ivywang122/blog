@@ -94,7 +94,7 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 
 <meta itemprop="datePublished" content="2018-03-21T10:56:38&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-21T10:56:38&#43;08:00" />
-<meta itemprop="wordCount" content="426">
+<meta itemprop="wordCount" content="625">
 
 
 
@@ -226,11 +226,16 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 <li><a href="#主題預覽">主題預覽</a></li>
 <li><a href="#設定-config-toml">設定 config.toml</a></li>
 </ul></li>
-<li><a href="#發布">發布</a>
+<li><a href="#網站發布">網站發布</a>
 <ul>
-<li><a href="#部署-github-pages">部署 GitHub Pages</a></li>
+<li><a href="#github-pages-託管">GitHub Pages 託管</a></li>
+<li><a href="#github-pages-頁面類型">GitHub Pages 頁面類型</a></li>
+<li><a href="#new-repository">New repository</a></li>
+<li><a href="#將網站-push-到-github">將網站 push 到 gitHub</a></li>
+<li><a href="#補充-github-pages-setting">補充：gitHub Pages Setting</a></li>
 </ul></li>
 <li><a href="#結語">結語</a></li>
+<li><a href="#參考網站">參考網站</a></li>
 </ul>
 </nav>
   </div>
@@ -285,12 +290,12 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 <li>新增路徑  <code>C:\Hugo\bin</code> 確定</li>
 </ol>
 
-<!-- ![搜尋進階系統設定](https://ivywang122.github.io/blog/img/0321-1.png) -->
+<!-- ![搜尋進階系統設定](https://ivywang122.github.io/blog/img/0321-1.jpg) -->
 
 <p>
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0321-1.png" alt="搜尋進階系統設定" />
+        <img src="https://ivywang122.github.io/blog/img/0321-1.jpg" alt="搜尋進階系統設定" />
     
     
     <figcaption>
@@ -300,11 +305,11 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
     
 </figure>
 
-<!-- ![環境變數](https://ivywang122.github.io/blog/img/0321-2.png) -->
+<!-- ![環境變數](https://ivywang122.github.io/blog/img/0321-2.jpg) -->
 
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0321-2.png" alt="環境變數" />
+        <img src="https://ivywang122.github.io/blog/img/0321-2.jpg" alt="環境變數" />
     
     
     <figcaption>
@@ -314,11 +319,11 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
     
 </figure>
 
-<!-- ![Path編輯](https://ivywang122.github.io/blog/img/0321-3.png) -->
+<!-- ![Path編輯](https://ivywang122.github.io/blog/img/0321-3.jpg) -->
 
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0321-3.png" alt="Path編輯" />
+        <img src="https://ivywang122.github.io/blog/img/0321-3.jpg" alt="Path編輯" />
     
     
     <figcaption>
@@ -328,11 +333,11 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
     
 </figure>
 
-<!-- ![新增路徑](https://ivywang122.github.io/blog/img/0321-4.png) -->
+<!-- ![新增路徑](https://ivywang122.github.io/blog/img/0321-4.jpg) -->
 
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0321-4.png" alt="新增路徑" />
+        <img src="https://ivywang122.github.io/blog/img/0321-4.jpg" alt="新增路徑" />
     
     
     <figcaption>
@@ -347,7 +352,7 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 
 <p>相較起 Windows，超級簡單&hellip;</p>
 
-<pre><code>$ brew install hugo
+<pre><code class="language-bash">$ brew install hugo
 </code></pre>
 
 <h2 id="確認安裝">確認安裝</h2>
@@ -356,7 +361,7 @@ Hugo 是一個由Golang實現的靜態網站生成器(Static Site Generator, SSG
 
 <h3 id="基本指令">基本指令</h3>
 
-<pre><code>$ hugo version               # 查看當前版本
+<pre><code class="language-bash">$ hugo version               # 查看當前版本
 $ hugo help                  # hugo 指令目錄查看
 $ hugo new site yourSite     # 新增一個網站 project
 $ hugo new post/your-post.md # 新增一篇文章
@@ -371,7 +376,7 @@ $ hugo server                # 啟用 localhost:1313
 
 <h2 id="新增一個-site-project">新增一個 site project</h2>
 
-<pre><code>$ hugo new site mySite
+<pre><code class="language-bash">$ hugo new site mySite
 </code></pre>
 
 <p>Hugo 會自動在目錄中生成一個網頁結構：</p>
@@ -387,7 +392,7 @@ $ hugo server                # 啟用 localhost:1313
 
 <h2 id="新增一篇文章">新增一篇文章</h2>
 
-<pre><code>$ cd 專案目錄/mySite
+<pre><code class="language-bash">$ cd 專案目錄/mySite
 $ hugo new about.md     
 $ hugo new post/first-post.md
 </code></pre>
@@ -406,7 +411,7 @@ $ hugo new post/first-post.md
 <p>
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0413-2.png" />
+        <img src="https://ivywang122.github.io/blog/img/0413-2.jpg" />
     
     
     <figcaption>
@@ -419,7 +424,7 @@ $ hugo new post/first-post.md
 
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0413-1.png" />
+        <img src="https://ivywang122.github.io/blog/img/0413-1.jpg" />
     
     
     <figcaption>
@@ -434,7 +439,7 @@ $ hugo new post/first-post.md
 
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0413-3.png" />
+        <img src="https://ivywang122.github.io/blog/img/0413-3.jpg" />
     
     
     <figcaption>
@@ -447,7 +452,7 @@ $ hugo new post/first-post.md
 
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0413-4.png" />
+        <img src="https://ivywang122.github.io/blog/img/0413-4.jpg" />
     
     
     <figcaption>
@@ -462,7 +467,7 @@ $ hugo new post/first-post.md
 
 <p>文章新增完成要在 local 端預覽，執行：</p>
 
-<pre><code>$ hugo server -D
+<pre><code class="language-bash">$ hugo server -D
 </code></pre>
 
 <p>hugo server 會預留 <code>1313</code>作連接埠，可於瀏覽器查看 <a href="http://localhost:1313">http://localhost:1313</a></p>
@@ -491,7 +496,7 @@ $ hugo new post/first-post.md
 
 <p>首先挑一個喜歡的主題模板放到專案<code>/themes</code>目錄，這邊使用了<code>ananke</code>這個主題。</p>
 
-<pre><code>$ cd themes
+<pre><code class="language-bash">$ cd themes
 $ git clone https://github.com/budparr/gohugo-theme-ananke.git
 </code></pre>
 
@@ -499,7 +504,7 @@ $ git clone https://github.com/budparr/gohugo-theme-ananke.git
 
 <h2 id="主題預覽">主題預覽</h2>
 
-<pre><code>$ hugo server --theme=ananke
+<pre><code class="language-bash">$ hugo server --theme=ananke
 </code></pre>
 
 <p>此時輸入 hugo server 帶入 theme 指令，可以在 localhost 上看到剛剛建立的文章預覽了！當然也可以下載更多的主題來預覽，只要在<code>--theme=your-theme-name</code>改成欲套用的主題名稱即可。</p>
@@ -507,7 +512,7 @@ $ git clone https://github.com/budparr/gohugo-theme-ananke.git
 
 <figure>
     
-        <img src="https://ivywang122.github.io/blog/img/0413-5.png" />
+        <img src="https://ivywang122.github.io/blog/img/0413-5.jpg" />
     
     
     <figcaption>
@@ -520,7 +525,7 @@ $ git clone https://github.com/budparr/gohugo-theme-ananke.git
 
 <h2 id="設定-config-toml">設定 config.toml</h2>
 
-<p>一開始由 hugo 生成的 <code>config.toml</code> 文件設定上較精簡，可以將下載下來的<code>anake/exampleSite/config.toml</code>複製覆蓋到專案目錄中，再進行更細部的設定。</p>
+<p>一開始由 hugo 生成的 <code>config.toml</code> 文件設定上較精簡，可以將下載下來的<code>anake/exampleSite/config.toml</code>或其他主題模板中的<code>config.toml</code>複製覆蓋到專案目錄中，再進行更細部的設定。</p>
 
 <p>以下僅做常用的設定介紹，更詳盡的設定參數請參考官方文件：<a href="https://gohugo.io/getting-started/configuration/#toml-configuration">Configure Hugo｜Hugo</a></p>
 
@@ -571,13 +576,166 @@ paginatePath = &quot;page&quot; (default: &quot;page&quot;)
 
 <hr />
 
-<h1 id="發布">發布</h1>
+<h1 id="網站發布">網站發布</h1>
 
-<h2 id="部署-github-pages">部署 GitHub Pages</h2>
+<p>Hugo 架站最後一步就是輸出成打包好的文件，只要在專案根目錄下執行：</p>
+
+<pre><code class="language-bash">$ hugo
+</code></pre>
+
+<p>就會在根目錄中生成<code>/public</code>資料夾，原本存在根目錄<code>/static</code>中的資料夾(ex.<code>static/images</code>)，會直接生成在<code>/public/images</code>。</p>
+
+<h2 id="github-pages-託管">GitHub Pages 託管</h2>
+
+<p>GitHub 上的 GitHub Pages 服務可以在個人的 GitHub 上做免費的 SSL 靜態頁面託管，所以必須的前置作業：</p>
+
+<ol>
+<li>電腦安裝 Git 2.8 以上的版本</li>
+<li>擁有一個 GitHub 帳戶</li>
+</ol>
+
+<p>若需要更詳細的教學可以參考官網：<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hosting on GitHub｜Hugo</a></p>
+
+<h2 id="github-pages-頁面類型">GitHub Pages 頁面類型</h2>
+
+<p>要 Push 檔案到 GitHub 前，需先在自己的 GitHub 建立新專案。GitHub Pages 有兩種頁面類型：</p>
+
+<ol>
+<li>用戶個人主頁：<code>https://&lt;USERNAME&gt;.github.io/</code></li>
+<li>專案名稱頁：<code>https://&lt;USERNAME&gt;.hithob.io/&lt;PROJECT NAME&gt;/</code></li>
+</ol>
+
+<p>可以選擇偏好的方式來建立新的 Repository</p>
+
+<h2 id="new-repository">New repository</h2>
+
+<p>首先在網頁右上點選 + &gt; New repository
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0416-1.jpg" />
+    
+    
+    <figcaption>
+        <h4>New repository</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>使用用戶個人主頁當頁面網址，在 Repository name 輸入：<code>USERNAME.github.io</code>；
+若使用專案名稱當頁面網址，Repository name 則輸入：<code>PROJECT-NAME</code>
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0416-2.jpg" />
+    
+    
+    <figcaption>
+        <h4>New repository</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>repository新增完成後，需修改專案根目錄 <code>config.toml</code> 中的 <code>baseUrl</code> 設定成當前使用的 gitHub pages 網址，並重新執行<code>$ hugo</code>生成<code>/public</code></p>
+
+<p>當然也可以直接在<code>/public</code> 生成前執行以下命令來修改站點的 theme 和 baseUrl</p>
+
+<pre><code class="language-bash">$ hugo --theme=your-theme-name --baseUrl=&quot;https://username.github.io/&quot;
+</code></pre>
+
+<p><em><p class="ps-text">ps. 使用此方法並不會修改根目錄中 config.toml 的 theme 和 baseUrl 設定</p></em></p>
+
+<h2 id="將網站-push-到-github">將網站 push 到 gitHub</h2>
+
+<p>baseUrl 設定重後，接著進入<code>/public</code> 資料夾</p>
+
+<pre><code class="language-bash"># 新增.git
+$ git init
+
+# remote push 的目的地 (網址可從專案中的 Clone ore download 中複製)
+$ git remote add origin https://github.com/username/username.github.io.git
+
+# 加入所有檔案到下一個 commit
+$ git add .
+
+# commit 加入的檔案
+$ git commit -m &quot;first commit&quot;
+
+# local master push origin master(set the remote as upstream)
+$ git push -u origin master
+
+</code></pre>
+
+<p>若無發生錯誤狀況，到這邊已經執行完 push 至 gitHub 上了，可以在 <a href="https://username.github.io/">https://username.github.io/</a> 看到網站了！</p>
+
+<h2 id="補充-github-pages-setting">補充：gitHub Pages Setting</h2>
+
+<p>如果使用專案名稱當作頁面網址，需要多一個步驟去設定 gitHub Pages 的開關。打開專案 repository 點選 Settings
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0416-3.jpg" />
+    
+    
+    <figcaption>
+        <h4>Settings</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>找到 GitHub Pages 設定區塊，將 Source 設定為 master branch 後點按 Save
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0416-4.jpg" />
+    
+    
+    <figcaption>
+        <h4>Settings</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>設定好後，網站就發布完成了。可以在藍色區塊看到發布的 url
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0416-5.jpg" />
+    
+    
+    <figcaption>
+        <h4>Settings</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
 
 <hr />
 
 <h1 id="結語">結語</h1>
+
+<p>原本想說要找一個平台放學習筆記，順便經營一下自己的 gitHub，在這邊修修那邊改改的過程中，終於生出這篇文章。第一次寫筆記，光是找相關資料和構思內容就花了大半的時間，當然過程中是獲得不少 exp 啦！順便練習 .md 怎麼寫。<del>不過真的寫筆記文章超級費神費時的</del></p>
+
+<p>有考慮之後慢慢更新 blog 在加入 DISQUS 留言系統，希望自己可以更有動力更新就是了。</p>
+
+<h1 id="參考網站">參考網站</h1>
+
+<ul>
+<li><a href="https://gohugo.io/documentation/">Hugo Documentation</a></li>
+<li><a href="https://themes.gohugo.io/">Hugo Themes</a></li>
+<li><a href="https://blog.olowolo.com/post/hugo-quick-start/">Hugo 从入门到会用</a></li>
+<li><a href="https://tracydeng.github.io/2016/07/hugo/">hugo + github pages搭建静态博客</a></li>
+<li><a href="http://cjting.me/golang/migrate-to-hugo-from-jekyll/">从Jekyll迁移到Hugo，Hugo不完全指南</a></li>
+</ul>
     </div>
 
     
@@ -589,7 +747,7 @@ paginatePath = &quot;page&quot; (default: &quot;page&quot;)
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     
-    <span class="item-content">2018-04-13</span>
+    <span class="item-content">2018-04-16</span>
   </p>
   
   
@@ -611,11 +769,6 @@ paginatePath = &quot;page&quot; (default: &quot;page&quot;)
       <nav class="post-nav">
         
         
-          <a class="next" href="/blog/blog/2018/03/first-post/">
-            <span class="next-text nav-default">First Post</span>
-            <span class="prev-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
       </nav>
     </footer>
   </article>
