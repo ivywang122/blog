@@ -12,17 +12,17 @@
     
     
     <item>
-      <title>JS Notes: Closures 閉包</title>
-      <link>https://ivywang122.github.io/blog/blog/2018/04/js-notes-closures-%E9%96%89%E5%8C%85/</link>
+      <title>JS Notes: Closure 閉包 &amp; Callback 回呼</title>
+      <link>https://ivywang122.github.io/blog/blog/2018/04/js-notes-closure-%E9%96%89%E5%8C%85--callback-%E5%9B%9E%E5%91%BC/</link>
       <pubDate>Mon, 16 Apr 2018 15:52:12 +0800</pubDate>
       
-      <guid>https://ivywang122.github.io/blog/blog/2018/04/js-notes-closures-%E9%96%89%E5%8C%85/</guid>
-      <description>&lt;h1 id=&#34;了解閉包-closure&#34;&gt;了解閉包(Closure)&lt;/h1&gt;
+      <guid>https://ivywang122.github.io/blog/blog/2018/04/js-notes-closure-%E9%96%89%E5%8C%85--callback-%E5%9B%9E%E5%91%BC/</guid>
+      <description>&lt;h1 id=&#34;了解閉包&#34;&gt;了解閉包&lt;/h1&gt;
 
 &lt;p&gt;參考 MDN 文件：&lt;a href=&#34;https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Closures&#34;&gt;Closure&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;閉包（Closure）是函式的組合，以及該宣告函式所包含的作用域環境（lexical environment）&lt;/p&gt;
+&lt;p&gt;閉包(Closure) 是函數的組合，以及該宣告函數所包含的作用域環境(lexical environment)&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
