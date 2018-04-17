@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>JS Notes: bind(), call() &amp; apply() - BoBo Dev Notes</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="BoBo" />
+  <meta name="description" content="前言 當程式開始執行全域的執行環境 (Global Execution Context) 被創造，第一階段 creation phase 會產生全域物件 (Global Object)、this 變數、外部環境 (Outer Environment) 和抬升 (Hoisting) 中的變數和函數，這邊的 this 指的是 Global Object。
+  Global Execution Context   而當我們希望可以去調整函數中 this 指的對象，可以透過 JavaScript 中函數物件的方法：call(), apply() &amp;amp; bind() 來控制 this 變數。
+
+" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="https://ivywang122.github.io/blog/blog/2018/04/js-notes-bind-call--apply/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/blog/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/blog/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+
+<meta property="og:title" content="JS Notes: bind(), call() &amp; apply()" />
+<meta property="og:description" content="前言
+
+當程式開始執行全域的執行環境 (Global Execution Context) 被創造，第一階段 creation phase 會產生全域物件 (Global Object)、this 變數、外部環境 (Outer Environment) 和抬升 (Hoisting) 中的變數和函數，這邊的 this 指的是 Global Object。
+
+
+
+    
+        
+    
+    
+    
+        Global Execution Context
+        
+    
+    
+
+
+
+而當我們希望可以去調整函數中 this 指的對象，可以透過 JavaScript 中函數物件的方法：call(), apply() &amp; bind() 來控制 this 變數。
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ivywang122.github.io/blog/blog/2018/04/js-notes-bind-call--apply/" />
+
+
+
+<meta property="article:published_time" content="2018-04-17T09:58:41&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-04-17T09:58:41&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="JS Notes: bind(), call() &amp; apply()">
+<meta itemprop="description" content="前言
+
+當程式開始執行全域的執行環境 (Global Execution Context) 被創造，第一階段 creation phase 會產生全域物件 (Global Object)、this 變數、外部環境 (Outer Environment) 和抬升 (Hoisting) 中的變數和函數，這邊的 this 指的是 Global Object。
+
+
+
+    
+        
+    
+    
+    
+        Global Execution Context
+        
+    
+    
+
+
+
+而當我們希望可以去調整函數中 this 指的對象，可以透過 JavaScript 中函數物件的方法：call(), apply() &amp; bind() 來控制 this 變數。
+
+">
+
+
+<meta itemprop="datePublished" content="2018-04-17T09:58:41&#43;08:00" />
+<meta itemprop="dateModified" content="2018-04-17T09:58:41&#43;08:00" />
+<meta itemprop="wordCount" content="385">
+
+
+
+<meta itemprop="keywords" content="JavaScript,筆記," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS Notes: bind(), call() &amp; apply()"/>
+<meta name="twitter:description" content="前言
+
+當程式開始執行全域的執行環境 (Global Execution Context) 被創造，第一階段 creation phase 會產生全域物件 (Global Object)、this 變數、外部環境 (Outer Environment) 和抬升 (Hoisting) 中的變數和函數，這邊的 this 指的是 Global Object。
+
+
+
+    
+        
+    
+    
+    
+        Global Execution Context
+        
+    
+    
+
+
+
+而當我們希望可以去調整函數中 this 指的對象，可以透過 JavaScript 中函數物件的方法：call(), apply() &amp; bind() 來控制 this 變數。
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">B.Notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">BLOG</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">ARCH</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">CAT</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">TAGS</li>
+      </a><a href="/blog/about/">
+        <li class="mobile-menu-item">ABOUT</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">B.Notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">BLOG</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">ARCH</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">CAT</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">TAGS</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/about/">ABOUT</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">JS Notes: bind(), call() &amp; apply()</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-04-17 </span>
+        <div class="post-category">
+            
+            <a href="/blog/categories/javascript/"><i class="fas fa-folder-open"></i> JavaScript </a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#bind">bind()</a>
+<ul>
+<li><a href="#語法">語法</a></li>
+<li><a href="#範例-建立-bind-函數">範例：建立.bind()函數</a></li>
+<li><a href="#給函數參數預設值-function-currying">給函數參數預設值 (function currying)</a></li>
+</ul></li>
+<li><a href="#call">call()</a>
+<ul>
+<li><a href="#語法-1">語法</a></li>
+<li><a href="#範例">範例</a></li>
+</ul></li>
+<li><a href="#apply">apply()</a>
+<ul>
+<li><a href="#語法-2">語法</a></li>
+<li><a href="#範例-1">範例</a></li>
+</ul></li>
+<li><a href="#函數借用-function-borrowing">函數借用 (function borrowing)</a></li>
+<li><a href="#函數柯里化-function-currying">函數柯里化 (function currying)</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h1 id="前言">前言</h1>
+
+<p>當程式開始執行全域的執行環境 (Global Execution Context) 被創造，第一階段 creation phase 會產生全域物件 (Global Object)、this 變數、外部環境 (Outer Environment) 和抬升 (Hoisting) 中的變數和函數，這邊的 this 指的是 Global Object。</p>
+
+
+<figure>
+    
+        <img src="https://ivywang122.github.io/blog/img/0417-1.jpg" alt="Global Execution Context" width="500" />
+    
+    
+    <figcaption>
+        <h4>Global Execution Context</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<p>而當我們希望可以去調整函數中 this 指的對象，可以透過 JavaScript 中函數物件的方法：<code>call()</code>, <code>apply()</code> &amp; <code>bind()</code> 來控制 this 變數。</p>
+
+<p></p>
+
+<hr />
+
+<h1 id="bind">bind()</h1>
+
+<p>當函數使用 <code>bind()</code> 方法，可將傳入的參數做為 <code>this</code> 物件傳遞給目標函數，並回傳一個指定 <code>this</code> 對象的 <strong>拷貝函數</strong>。
+詳細說明可參考 MDN Doc: <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">Function.prototype.bind()</a></p>
+
+<h2 id="語法">語法</h2>
+
+<blockquote>
+<p>function.bind(thisArg[, arg1[, arg2[, &hellip;]]])</p>
+</blockquote>
+
+<h2 id="範例-建立-bind-函數">範例：建立.bind()函數</h2>
+
+<pre><code class="language-javascript">this.x = 9;     // 這裡的 this 指向 global window object in the browser
+
+var module = {
+    x: 81,
+    getX: function() { return this.x }
+};
+
+module.getX();  // 81
+
+var retrieveX = module.getX;
+retrieveX();    // 9 The function gets invoked at the global scope
+
+var boundGetX = retrieveX.bind(module); // Create a new function with 'this' bound to module
+boundGetX();    // 81
+
+</code></pre>
+
+<h2 id="給函數參數預設值-function-currying">給函數參數預設值 (function currying)</h2>
+
+<p><code>bind()</code> 除了可以傳入欲綁定 <code>this</code> 物件，也可以傳入其他參數，而這個傳入的參數會成為目標函數的參數預設值。</p>
+
+<pre><code class="language-javascript">function list() {
+    return Array.prototype.slice.call(arguments)    // 把類數組參數轉換成一個真正的數組陣列
+}
+
+var list1 = list(1, 2, 3);  // [1, 2, 3]
+
+// Create a func with 一個開頭的預設參數值 30
+var leadingThirtyList = list.bind(null, 30);
+
+var list2 = leadingThirtyList();    // [30]
+
+var list3 = leadingThirtyList(1, 2, 3); // [30, 1, 2, 3]
+
+</code></pre>
+
+<p><em><p class="ps-text">關於 Array.prototype.slice.call() 方法可參考：<a href="https://blog.csdn.net/i10630226/article/details/49702375">Array.prototype.slice.call()方法详解</a></p></em></p>
+
+<hr />
+
+<h1 id="call">call()</h1>
+
+<p><code>call()</code> 透過傳入的參數來指定 <code>this</code> 物件，但是這和 <code>bind()</code> 不一樣之處在於，當函數使用 <code>call()</code> 方法時，會直接執行該函數。詳細方法可參考 MDN Doc: <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Function/call">Function.prototype.call()</a></p>
+
+<h2 id="語法-1">語法</h2>
+
+<blockquote>
+<p>function.call(thisArg[, arg1[, arg2[, &hellip;]]])</p>
+</blockquote>
+
+<h2 id="範例">範例</h2>
+
+<pre><code class="language-javascript">this.x = 9;     // 這裡的 this 指向 global window object in the browser
+
+var module = {
+    x: 81,
+    getX: function() { return this.x }
+};
+
+module.getX();  // 81
+
+var retrieveX = module.getX;
+retrieveX();    // 9 The function gets invoked at the global scope
+
+retrieveX.call(module); // 81
+
+</code></pre>
+
+<hr />
+
+<h1 id="apply">apply()</h1>
+
+<p><code>apply()</code> 透過傳入的參數來指定 <code>this</code> 物件，和 <code>call()</code>相似，在傳入 <code>this</code> 後皆會直接執行該函數，唯一不一樣的地方在：</p>
+
+<blockquote>
+<p>傳入其他參數時，必須是一個陣列形式的參數</p>
+</blockquote>
+
+<p>詳細方法可參考 MDN Doc: <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">Function.prototype.apply()</a></p>
+
+<h2 id="語法-2">語法</h2>
+
+<blockquote>
+<p>function.apply(thisArg[, argsArray])</p>
+</blockquote>
+
+<h2 id="範例-1">範例</h2>
+
+<pre><code class="language-javascript">var person = {
+   'firstName': 'John',
+   'lastName': 'Smith',
+   'getFullName': function() {
+       console.log(this.firstName+' '+this.lastName);
+   }     
+}
+
+var logName = function(arg1, arg2){
+    console.log(this.getFullName);
+    console.log('arg: '+arg1+' '+arg2);
+}
+
+logName.call(person, 'arg1', 'arg2');
+logName.apply(person, ['arg1', 'arg2']);
+
+</code></pre>
+
+<hr />
+
+<h1 id="函數借用-function-borrowing">函數借用 (function borrowing)</h1>
+
+<p>如同字面上直譯，可以函數利用 <code>bind()</code>, <code>call()</code>, <code>apply()</code> 來借用指定的 <code>this</code> 物件中的內容。</p>
+
+<pre><code class="language-javascript">var person = {
+   'firstName': 'John',
+   'lastName': 'Smith',
+   'getFullName': function() {
+       console.log(this.firstName+' '+this.lastName);
+   }     
+}
+
+var person2 ={
+    'firstName': 'Marry',
+    'lastName': 'Wood'
+}
+
+var logName = function(arg1, arg2){
+    console.log(this.getFullName);
+}
+
+console.log(person.getFullName.apply(person2)); // Marry Wood
+console.log(person.getFullName.call(person2));
+console.log(person.getFullName.bind(porson2)());
+
+</code></pre>
+
+<hr />
+
+<h1 id="函數柯里化-function-currying">函數柯里化 (function currying)</h1>
+
+<p>根據一個目標函數，拷貝它來建立一個新的函數，並給予它參數預設值，就稱為 function curring，此方法常常運用在數學運算上。前面提到 <code>bind()</code> 可以拷貝目標函數，這裡即運用 <code>bind()</code> 來創造一個給定<strong>固定</strong>預設值的運算函數。</p>
+
+<pre><code class="language-javascript">function mutiply(a, b){
+    return a*b;
+}
+
+var mutipleByTwo = mutiply.bind(this, 2);   // 將 a = 2 設為預設值
+
+var multipleByTwoFive = multiply.bind(this, 2, 5);  // 將 a = 2, b = 5 設為預設值
+
+console.log(mutipleByTwo(4));   // 8
+console.log(mutipleByTwo(6));   // 12
+console.log(multipleByTwoFive(4));  // 10
+console.log(multipleByTwoFive(6));  // 10
+
+</code></pre>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">BoBo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    
+    <span class="item-content">2018-04-17</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/blog/tags/javascript/"><i class="fas fa-tag"></i>JavaScript</a>
+          
+          <a href="/blog/tags/%E7%AD%86%E8%A8%98/"><i class="fas fa-tag"></i>筆記</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/blog/blog/2018/04/js-notes-closure-%E9%96%89%E5%8C%85--callback-%E5%9B%9E%E5%91%BC/">
+            <span class="next-text nav-default">JS Notes: Closure 閉包 &amp; Callback 回呼</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mucha1202@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/ivywang122" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">BoBo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/blog/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/blog/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/blog/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/blog/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/blog/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

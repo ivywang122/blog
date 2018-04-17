@@ -6,10 +6,39 @@
     <description>Recent content in 筆記 on BoBo Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Apr 2018 15:52:12 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Apr 2018 09:58:41 +0800</lastBuildDate>
     
 	<atom:link href="https://ivywang122.github.io/blog/tags/%E7%AD%86%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS Notes: bind(), call() &amp; apply()</title>
+      <link>https://ivywang122.github.io/blog/blog/2018/04/js-notes-bind-call--apply/</link>
+      <pubDate>Tue, 17 Apr 2018 09:58:41 +0800</pubDate>
+      
+      <guid>https://ivywang122.github.io/blog/blog/2018/04/js-notes-bind-call--apply/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+
+&lt;p&gt;當程式開始執行全域的執行環境 (Global Execution Context) 被創造，第一階段 creation phase 會產生全域物件 (Global Object)、this 變數、外部環境 (Outer Environment) 和抬升 (Hoisting) 中的變數和函數，這邊的 this 指的是 Global Object。&lt;/p&gt;
+
+
+&lt;figure&gt;
+    
+        &lt;img src=&#34;https://ivywang122.github.io/blog/img/0417-1.jpg&#34; alt=&#34;Global Execution Context&#34; width=&#34;500&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;h4&gt;Global Execution Context&lt;/h4&gt;
+        
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;而當我們希望可以去調整函數中 this 指的對象，可以透過 JavaScript 中函數物件的方法：&lt;code&gt;call()&lt;/code&gt;, &lt;code&gt;apply()&lt;/code&gt; &amp;amp; &lt;code&gt;bind()&lt;/code&gt; 來控制 this 變數。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>JS Notes: Closure 閉包 &amp; Callback 回呼</title>

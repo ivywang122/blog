@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ivywang122.github.io/blog/blog/2018/04/js-notes-bind-call--apply/</loc>
+    <lastmod>2018-04-17T09:58:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://ivywang122.github.io/blog/blog/2018/04/js-notes-closure-%E9%96%89%E5%8C%85--callback-%E5%9B%9E%E5%91%BC/</loc>
     <lastmod>2018-04-16T15:52:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -25,7 +32,7 @@
   
   <url>
     <loc>https://ivywang122.github.io/blog/</loc>
-    <lastmod>2018-04-16T15:52:12+08:00</lastmod>
+    <lastmod>2018-04-17T09:58:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -52,21 +59,21 @@
   
   <url>
     <loc>https://ivywang122.github.io/blog/categories/javascript/</loc>
-    <lastmod>2018-04-16T15:52:12+08:00</lastmod>
+    <lastmod>2018-04-17T09:58:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ivywang122.github.io/blog/tags/javascript/</loc>
-    <lastmod>2018-04-16T15:52:12+08:00</lastmod>
+    <lastmod>2018-04-17T09:58:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ivywang122.github.io/blog/post/</loc>
-    <lastmod>2018-04-16T15:52:12+08:00</lastmod>
+    <lastmod>2018-04-17T09:58:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -87,7 +94,7 @@
   
   <url>
     <loc>https://ivywang122.github.io/blog/tags/%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2018-04-16T15:52:12+08:00</lastmod>
+    <lastmod>2018-04-17T09:58:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
