@@ -6,10 +6,25 @@
     <description>Recent content on BoBo Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Apr 2018 09:58:41 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Apr 2018 13:21:01 +0800</lastBuildDate>
     
 	<atom:link href="https://ivywang122.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C＃ Notes: 進入初學者村</title>
+      <link>https://ivywang122.github.io/blog/blog/2018/04/c-notes-%E9%80%B2%E5%85%A5%E5%88%9D%E5%AD%B8%E8%80%85%E6%9D%91/</link>
+      <pubDate>Thu, 26 Apr 2018 13:21:01 +0800</pubDate>
+      
+      <guid>https://ivywang122.github.io/blog/blog/2018/04/c-notes-%E9%80%B2%E5%85%A5%E5%88%9D%E5%AD%B8%E8%80%85%E6%9D%91/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+
+&lt;p&gt;本篇為夜間去台大修 C# 整理的初學者筆記。目前理解 Visual Studio 為一個 IDE (整合開發環境)，可以開發跨裝置的應用程式。而 C# 為物件導向的程式語言，可以建置各種在 .NET Framework 上執行的應用程式。更多詳細內容 Microsoft 已有提供文件教學：&lt;a href=&#34;https://docs.microsoft.com/zh-tw/dotnet/csharp/getting-started/introduction-to-the-csharp-language-and-the-net-framework&#34;&gt;C# 語言和 .NET Framework 簡介&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;若之後有新的心得與筆記內容，會繼續編輯本篇文章。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>JS Notes: bind(), call() &amp; apply()</title>
@@ -80,7 +95,8 @@
       <pubDate>Wed, 21 Mar 2018 09:31:45 +0800</pubDate>
       
       <guid>https://ivywang122.github.io/blog/about/</guid>
-      <description>這是一個about page</description>
+      <description> 關於本站  有些東西自己寫過才知道在幹嘛，這就是此網站蹦出來的原因。
+ </description>
     </item>
     
   </channel>
