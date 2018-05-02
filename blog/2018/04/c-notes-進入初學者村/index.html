@@ -67,7 +67,7 @@
 
 <meta property="article:published_time" content="2018-04-26T13:21:01&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-04-26T13:21:01&#43;08:00"/>
+<meta property="article:modified_time" content="2018-04-27T00:00:00&#43;00:00"/>
 
 
 
@@ -91,7 +91,7 @@
 
 <meta itemprop="datePublished" content="2018-04-26T13:21:01&#43;08:00" />
 <meta itemprop="dateModified" content="2018-04-26T13:21:01&#43;08:00" />
-<meta itemprop="wordCount" content="309">
+<meta itemprop="wordCount" content="324">
 
 
 
@@ -203,7 +203,7 @@
 <ul>
 <li><a href="#輸出文字">輸出文字</a></li>
 <li><a href="#輸入文字">輸入文字</a></li>
-<li><a href="#文字模板">文字模板</a></li>
+<li><a href="#文字模板-string-format">文字模板 String Format</a></li>
 </ul></li>
 <li><a href="#變數">變數</a>
 <ul>
@@ -225,8 +225,8 @@
 <li><a href="#數字轉字串">數字轉字串</a></li>
 <li><a href="#字串轉數字">字串轉數字</a>
 <ul>
-<li><a href="#parse">.Parse</a></li>
-<li><a href="#tryparse">.TryParse</a></li>
+<li><a href="#parse">Parse</a></li>
+<li><a href="#tryparse">TryParse</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#陣列">陣列</a>
@@ -302,10 +302,13 @@ Console.ReadLine();
 
 </code></pre>
 
-<h2 id="文字模板">文字模板</h2>
+<h2 id="文字模板-string-format">文字模板 String Format</h2>
 
 <pre><code class="language-C#">// 文字模板：替換使用者輸入的內容
-Console.WriteLine(&quot;登入成功！歡迎 {0} 回來！&quot;, Console.ReadLine());
+// {n} 表示傳入的第 n 個參數
+
+//                  Format string                     {0}     {1}
+Console.WriteLine(&quot;登入成功！歡迎 {0} 進入看板 {1}！&quot;, &quot;Bo Bo&quot;, &quot;Soft&quot;);
 
 </code></pre>
 
@@ -410,7 +413,7 @@ string str = num.ToString();
 
 <h2 id="字串轉數字">字串轉數字</h2>
 
-<h3 id="parse">.Parse</h3>
+<h3 id="parse">Parse</h3>
 
 <p>若字串為合法的數字，可以使用；若不合法，執行程式會發生錯誤。</p>
 
@@ -424,7 +427,7 @@ float pi = float.Parse(str);
 
 </code></pre>
 
-<h3 id="tryparse">.TryParse</h3>
+<h3 id="tryparse">TryParse</h3>
 
 <p>防止程式執行錯物的另一種字串轉數字的方法。</p>
 
@@ -500,8 +503,8 @@ Console.Write(a+b); // 53 當成字串相連
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
+    <span class="item-content">2018-04-27</span>
     
-    <span class="item-content">2018-04-26</span>
   </p>
   
   
@@ -523,8 +526,8 @@ Console.Write(a+b); // 53 當成字串相連
       <nav class="post-nav">
         
         
-          <a class="next" href="/blog/blog/2018/04/js-notes-bind-call--apply/">
-            <span class="next-text nav-default">JS Notes: bind(), call() &amp; apply()</span>
+          <a class="next" href="/blog/blog/2018/04/js-notes-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%92%8C%E5%8E%9F%E5%9E%8B%E7%B9%BC%E6%89%BF/">
+            <span class="next-text nav-default">JS Notes: 物件導向和原型繼承</span>
             <span class="prev-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

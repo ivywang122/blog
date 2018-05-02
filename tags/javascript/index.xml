@@ -6,10 +6,30 @@
     <description>Recent content in Javascript on BoBo Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Apr 2018 09:58:41 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Apr 2018 10:16:00 +0800</lastBuildDate>
     
 	<atom:link href="https://ivywang122.github.io/blog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS Notes: 物件導向和原型繼承</title>
+      <link>https://ivywang122.github.io/blog/blog/2018/04/js-notes-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%92%8C%E5%8E%9F%E5%9E%8B%E7%B9%BC%E6%89%BF/</link>
+      <pubDate>Wed, 18 Apr 2018 10:16:00 +0800</pubDate>
+      
+      <guid>https://ivywang122.github.io/blog/blog/2018/04/js-notes-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%92%8C%E5%8E%9F%E5%9E%8B%E7%B9%BC%E6%89%BF/</guid>
+      <description>&lt;h1 id=&#34;繼承&#34;&gt;繼承&lt;/h1&gt;
+
+&lt;p&gt;一個物件取用另一個物件的屬性或是方法，回歸本質來思考，繼承的目的就是在擴充原有物件定義不足的地方。不同程式語言的物件導向特性可分為：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;古典繼承 (Classical Inheritance)&lt;/li&gt;
+&lt;li&gt;原型繼承 (Prototypal Inheritance)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;而在 JavaScript 中使用的是原型繼承 (Prototypal Inheritance)。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>JS Notes: bind(), call() &amp; apply()</title>
@@ -28,7 +48,7 @@
     
     
     &lt;figcaption&gt;
-        &lt;h4&gt;Global Execution Context&lt;/h4&gt;
+        &lt;h4&gt;Global Execution Context (from Udemy JavaScript: Understanding the Weird Parts)&lt;/h4&gt;
         
     &lt;/figcaption&gt;
     
