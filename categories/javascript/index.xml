@@ -6,10 +6,29 @@
     <description>Recent content in Javascript on BoBo Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 18 Apr 2018 10:16:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 May 2018 15:28:16 +0800</lastBuildDate>
     
 	<atom:link href="https://ivywang122.github.io/blog/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS Notes: 嚴格模式</title>
+      <link>https://ivywang122.github.io/blog/blog/2018/05/js-notes-%E5%9A%B4%E6%A0%BC%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 02 May 2018 15:28:16 +0800</pubDate>
+      
+      <guid>https://ivywang122.github.io/blog/blog/2018/05/js-notes-%E5%9A%B4%E6%A0%BC%E6%A8%A1%E5%BC%8F/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+
+&lt;p&gt;嚴格模式對 JavaScript 語意上做了一些修正：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;透過拋出錯誤的方式，消除 JavaScript 默認上的錯誤&lt;/li&gt;
+&lt;li&gt;修正會阻礙 JavaScript 引擎進行最佳化的錯誤，相同的程式碼使用嚴格模式可以比非嚴格模式運作更快&lt;/li&gt;
+&lt;li&gt;禁止使用一些有可能會被未來版本 ECMAScript 定義的語法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>JS Notes: 物件導向和原型繼承</title>
